@@ -1,6 +1,6 @@
-# tangh06's Personal Homepage
+# TANG HUI's Personal Homepage
 
-Personal academic homepage of **tangh06** — Ph.D. student at the Software Engineering Institute, East China Normal University.
+Personal academic homepage of **TANG HUI** — Ph.D. student at the Software Engineering Institute, East China Normal University.
 
 Research focuses on **synthetic data generation and data processing for embodied intelligence** and **VLA as well as WAM**.
 

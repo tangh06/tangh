@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<!-- Design adapted from https://seonghyeonye.github.io/ (MIT License) -->
+<!-- TODO: replace photo.jpg with your own profile photo -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tangh06</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --accent:      #2563eb;
+            --accent-light: #eff6ff;
+            --text:        #1e293b;
+            --text-muted:  #64748b;
+            --border:      #e2e8f0;
+            --bg:          #f1f5f9;
+            --card:        #ffffff;
+            --gold:        #b45309;
+            --gold-bg:     #fef3c7;
+            --red:         #dc2626;
+            --red-bg:      #fee2e2;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        /* ── HERO ─────────────────────────────── */
+        .hero {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 48px 52px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.06);
+            display: flex;
+            gap: 48px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .hero-info { flex: 1; min-width: 0; }
+
+        .hero-name {
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .hero-affiliation {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 22px;
+        }
+
+        .hero-links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            background: #f8fafc;
+            transition: all 0.18s ease;
+        }
+
+        .hero-link:hover {
+            color: var(--accent);
+            border-color: #93c5fd;
+            background: var(--accent-light);
+        }
+
+        .hero-bio {
+            font-size: 0.93rem;
+            line-height: 1.8;
+            color: #334155;
+        }
+
+        .hero-bio a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero-bio a:hover { text-decoration: underline; }
+
+        .profile-image img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+            border: 3px solid #fff;
+            display: block;
+        }
+
+        /* ── SECTIONS ─────────────────────────── */
+        .section {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 40px 52px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.01em;
+            margin-bottom: 28px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--accent);
+            font-size: 0.95rem;
+        }
+
+        /* ── YEAR GROUPS ──────────────────────── */
+        .year-group { margin-bottom: 8px; }
+
+        .year-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .year-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ── PUBLICATION CARD ─────────────────── */
+        .pub-card {
+            padding: 16px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .pub-card:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .pub-title {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .pub-authors {
+            font-size: 0.81rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            line-height: 1.65;
+        }
+
+        .pub-authors ins {
+            text-decoration: none;
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .pub-venue {
+            font-size: 0.81rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pub-venue-name { font-style: italic; }
+
+        .pub-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--accent);
+            border: 1px solid #bfdbfe;
+            background: #eff6ff;
+            transition: all 0.18s ease;
+        }
+
+        .pub-link:hover {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        /* ── BADGES ───────────────────────────── */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            vertical-align: middle;
+        }
+
+        .badge-spotlight {
+            background: var(--gold-bg);
+            color: var(--gold);
+            border: 1px solid #fcd34d;
+        }
+
+        .badge-best {
+            background: var(--red-bg);
+            color: var(--red);
+            border: 1px solid #fca5a5;
+        }
+
+        /* ── TIMELINE ─────────────────────────── */
+        .timeline { display: flex; flex-direction: column; }
+
+        .timeline-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        .timeline-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .timeline-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--accent);
+            font-size: 0.85rem;
+            margin-top: 1px;
+        }
+
+        .timeline-content { flex: 1; min-width: 0; }
+
+        .timeline-org {
+            font-size: 0.93rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+
+        .timeline-detail {
+            font-size: 0.83rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        .timeline-detail a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .timeline-detail a:hover { text-decoration: underline; }
+
+        /* ── TALK LIST ────────────────────────── */
+        .talk-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .talk-item {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            padding: 11px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .talk-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .talk-date {
+            font-size: 0.73rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-light);
+            border: 1px solid #bfdbfe;
+            border-radius: 20px;
+            padding: 2px 10px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            letter-spacing: 0.01em;
+        }
+
+        .talk-place {
+            font-size: 0.88rem;
+            color: var(--text);
+            flex: 1;
+            line-height: 1.5;
+        }
+
+        .talk-place a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .talk-place a:hover { text-decoration: underline; }
+
+        /* ── RESPONSIVE ───────────────────────── */
+        @media (max-width: 640px) {
+            .hero {
+                flex-direction: column-reverse;
+                align-items: center;
+                padding: 32px 28px;
+                text-align: center;
+            }
+            .hero-links { align-items: center; }
+            .section { padding: 32px 28px; }
+            .hero-name { font-size: 1.75rem; }
+        }
+
+        /* ── RESEARCH INTERESTS ───────────────── */
+        .interest-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .interest-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            font-size: 0.93rem;
+            color: #334155;
+            line-height: 1.7;
+        }
+
+        .interest-item i {
+            color: var(--accent);
+            margin-top: 5px;
+            width: 16px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .pub-desc {
+            font-size: 0.85rem;
+            color: #334155;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 28px;
+        }
+
+        .footer a { color: var(--text-muted); }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-info">
+      <h1 class="hero-name">tangh06</h1>
+      <p class="hero-affiliation">Software Engineering Institute, East China Normal University &nbsp;·&nbsp; Ph.D. Student</p>
+      <div class="hero-links">
+        <a class="hero-link" href="https://github.com/tangh06" target="_blank">
+          <i class="fab fa-github"></i> https://github.com/tangh06
+        </a>
+      </div>
+      <p class="hero-bio">
+        Welcome to my personal homepage! I am a Ph.D. student at the
+        <a href="https://sei.ecnu.edu.cn/" target="_blank">Software Engineering Institute</a>,
+        East China Normal University, and an active researcher and developer.
+        My research focuses on <strong>synthetic data generation and process for embodied intelligence</strong>
+        and <strong>VLA as well as WAM</strong>.
+      </p>
+    </div>
+    <div class="profile-image">
+      <img src="photo.jpg" alt="tangh06">
+    </div>
+  </div>
+
+  <!-- ── RESEARCH INTERESTS ── -->
+  <div class="section">
+    <h2 class="section-title"><i class="fa fa-flask"></i> Research Interests</h2>
+    <ul class="interest-list">
+      <li class="interest-item">
+        <i class="fa fa-cubes"></i>
+        <span><strong>Synthetic data generation and process</strong> for embodied intelligence</span>
+      </li>
+      <li class="interest-item">
+        <i class="fa fa-robot"></i>
+        <span><strong>Vision-Language-Action (VLA) models</strong> for generalist robot policy</span>
+      </li>
+      <li class="interest-item">
+        <i class="fa fa-globe"></i>
+        <span><strong>World Action Models (WAM)</strong> for generalist robot policy</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ── EDUCATION ── -->
+  <div class="section">
+    <h2 class="section-title"><i class="fa fa-graduation-cap"></i> Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-icon"><i class="fa fa-university"></i></div>
+        <div class="timeline-content">
+          <div class="timeline-org">East China Normal University</div>
+          <div class="timeline-detail">Ph.D. Student, Software Engineering Institute</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="footer">
+    &copy; 2026 tangh06
+  </p>
+
+</div>
+</body>
+</html>

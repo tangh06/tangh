@@ -2,7 +2,7 @@
 
 Personal academic homepage of **tangh06** — Ph.D. student at the Software Engineering Institute, East China Normal University.
 
-Research focuses on **synthetic data generation and process for embodied intelligence** and **VLA as well as WAM**.
+Research focuses on **synthetic data generation and data processing for embodied intelligence** and **VLA as well as WAM**.
 
 ## View the site
 
